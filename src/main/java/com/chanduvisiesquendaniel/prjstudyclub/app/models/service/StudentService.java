@@ -23,4 +23,7 @@ public interface StudentService {
 	public Mono<Families> findFamiliesById(String id);
 	public Mono<Families> saveFamilies (Families families);
 	public Mono<Void> deleteFamilies (Families families);
+	
+	/*function customize*/
+	public Mono<Student> saveStudent(Student student);
 }

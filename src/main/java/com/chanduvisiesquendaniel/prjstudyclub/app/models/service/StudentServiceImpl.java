@@ -2,6 +2,7 @@ package com.chanduvisiesquendaniel.prjstudyclub.app.models.service;
 
 import org.springframework.stereotype.Service;
 
+import com.chanduvisiesquendaniel.prjstudyclub.app.models.documents.Families;
 import com.chanduvisiesquendaniel.prjstudyclub.app.models.documents.Family;
 import com.chanduvisiesquendaniel.prjstudyclub.app.models.documents.Student;
 import com.chanduvisiesquendaniel.prjstudyclub.app.models.repository.FamilyRepository;
@@ -57,5 +58,33 @@ public class StudentServiceImpl implements StudentService {
 		// TODO Auto-generated method stub
 		return familyRepo.delete(family);
 	}
+
+	@Override
+	public Mono<Families> findFamiliesById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Mono<Families> saveFamilies(Families families) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Mono<Void> deleteFamilies(Families families) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Mono<Student> saveStudent(Student student) {
+		if(student.getParents().size()>2) {
+			return Mono.error(new Exception("El usuario no puede llamarmse daniel"));
+		}
+		return studentRepo.save(student);
+	}
+	
+	
 
 }
