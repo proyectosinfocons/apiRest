@@ -15,7 +15,11 @@ public class RouterFunctionConfig {
 	
 	@Bean
 	public RouterFunction<ServerResponse> routes (StudentHandler handler){
-		return route(POST("/api-club-study/students"),handler::createStudent
-				);
+		return route(POST("/api-club-study/students"),handler::createStudent)
+				.andRoute(GET("/api-club-study/students"), handler::listStudents)
+				.andRoute(PUT("/api-club-study/students/{id}"), handler::updateStudent)
+				.andRoute(DELETE("/api-club-study/students/{id}"), handler::deleteStudent)
+				.andRoute(GET("/api-club-study/students/namecomplete/{fullname}"), handler::findStudentByFullname)
+				.andRoute(GET("/api-club-study/students/numDoc/{numberDocument}"), handler::findStudentByNumDocu);
 	}
 }

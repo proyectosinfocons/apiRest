@@ -17,7 +17,12 @@ public class Families {
 		this.id = id;
 		this.members = members;
 	}
+	
 	public Families() {}
+	
+	public Families(List<Family> members) {
+		this.members= members;
+	}
 	
 	public String getId() {
 		return id;

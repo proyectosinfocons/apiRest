@@ -2,6 +2,8 @@ package com.chanduvisiesquendaniel.prjstudyclub.app.models.service;
 
 
 
+import java.util.Date;
+
 import com.chanduvisiesquendaniel.prjstudyclub.app.models.documents.Families;
 import com.chanduvisiesquendaniel.prjstudyclub.app.models.documents.Family;
 import com.chanduvisiesquendaniel.prjstudyclub.app.models.documents.Student;
@@ -14,6 +16,9 @@ public interface StudentService {
 	public Mono<Student> findById(String id);
 	public Mono<Student> save(Student student);
 	public Mono<Void> delete(Student student);
+	public Mono<Student> findByName(String fullname);
+	public Mono<Student> findByNumberDocument(String nummerDocument);
+	public Flux<Student> findByStudentsByDate(Date from , Date to);
 	
 	
 	public Mono<Family> findFamilyById(String id);
@@ -26,4 +31,7 @@ public interface StudentService {
 	
 	/*function customize*/
 	public Mono<Student> saveStudent(Student student);
+	
+	
+	
 }
