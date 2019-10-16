@@ -2,9 +2,16 @@ package com.chanduvisiesquendaniel.prjstudyclub.app.models.documents;
 
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="families")
 public class Families {
+	@Id
 	private String id;
+	
 	private List<Family> members;
+	
 	public Families(String id, List<Family> members) {
 		
 		this.id = id;
